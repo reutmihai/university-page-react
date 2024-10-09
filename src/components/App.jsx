@@ -1,16 +1,14 @@
-export const App = () => {
+import University from './University/University';
+import Tutors from './Tutors/Tutors';
+import Sidebar from './Sidebar/Sidebar';
+import '@fontsource/montserrat';
+
+export default function App() {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      {/* <Sidebar /> */}
+      <University />
+      <Tutors />
     </div>
   );
-};
+}
