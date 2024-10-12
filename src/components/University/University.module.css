@@ -13,11 +13,13 @@
   gap: 10px;
   padding: 25px;
   background-color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.cardAvatar:hover, .cardDescription:hover {
+.cardAvatar:hover {
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: scale(1.05);
 }
 
 .cardAvatar img {
@@ -39,9 +41,9 @@
 }
 
 .cardDescription {
-  padding: 25px;
+  padding: 20px;
   background-color: white;
-  font-size: 16px;
+  font-size: 25px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.5px;

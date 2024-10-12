@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 export default class AddTutor extends Component {
   state = {
-    
     surname: '',
     name: '',
     phone: '',
     city: '',
     email: '',
+    options: '',
   };
 
   handleSubmit = e => {
@@ -17,11 +17,11 @@ export default class AddTutor extends Component {
 
   handleChange = e => {
     const { name, value } = e.target;
-    this.setState({ [name]: value }); 
+    this.setState({ [name]: value });
   };
 
   render() {
-    const { surname, name } = this.state;
+    const { surname, name, phone, email, city, options } = this.state;
     return (
       <>
         <form onSubmit={this.handleSubmit}>
@@ -34,6 +34,7 @@ export default class AddTutor extends Component {
               name="surname"
               placeholder="Surname"
               onChange={this.handleChange}
+              required
             />
           </label>
           <label>
@@ -43,6 +44,50 @@ export default class AddTutor extends Component {
               value={name}
               name="name"
               placeholder="Name"
+              onChange={this.handleChange}
+              required
+            />
+          </label>
+          <label>
+            <span>Phone number</span>
+            <input
+              type="tel"
+              value={phone}
+              name="phone"
+              placeholder="Phone number"
+              onChange={this.handleChange}
+              required
+            />
+          </label>
+          <label>
+            <span>Email</span>
+            <input
+              type="email"
+              value={email}
+              name="email"
+              placeholder="Email"
+              onChange={this.handleChange}
+              required
+            />
+          </label>
+          <label>
+            <span>City</span>
+            <input
+              type="text"
+              value={city}
+              name="city"
+              placeholder="City"
+              onChange={this.handleChange}
+              required
+            />
+          </label>
+          <label>
+            <span>Options</span>
+            <input
+              type="text"
+              value={options}
+              name="options"
+              placeholder="Options"
               onChange={this.handleChange}
             />
           </label>

@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 import styles from './Tutors.module.css';
+import AddTutor from 'components/AddTutor/AddTutor';
+import { Icon } from 'components/Common/Icon/Icon';
 
 class Tutors extends Component {
   state = {
-    isADdFormVisible: false,
+    isAddFormVisible: false,
     list: [
       {
         id: 0,
@@ -17,6 +19,7 @@ class Tutors extends Component {
       },
     ],
   };
+
   renderList = items => {
     return items.map(el => {
       return (
@@ -35,14 +38,39 @@ class Tutors extends Component {
       );
     });
   };
+  handleTutor = (data) => {
+    console.log('data:', data);
+    const newId = this.state.list.length > 0 ? this.state.list.length : 0;
+    const addNewTutor = {
+      id: newId,
+      firstName : data.surname,
+      lastName : data.name,
+      phone : data.phone,
+      email : data.email,
+      city : data.city,
+      options: data.options,
+    }
+    this.setState(prevState => {
+      return {
+        list: [...prevState.list, addNewTutor],
+        isAddFormVisible: false
+      }
+    })
+  }
 
   render() {
-    const { isADdFormVisible, list } = this.state;
+    const { isAddFormVisible, list } = this.state;
     return (
       <section className={styles.tutorSection}>
-        <h1>Tutors</h1>
+        <div className={styles['title-icon']}>
+          <Icon variant="cat" label="cat" />
+          <h1>Tutors</h1>
+        </div>
         <div className={styles.tutorsList}>{this.renderList(list)}</div>
-        <button>@ Add tutor</button>
+        {isAddFormVisible && <AddTutor onFormSubmit={this.handleTutor} />}
+        <button onClick={() => this.setState({ isAddFormVisible: true })}>
+          Add tutor
+        </button>
       </section>
     );
   }

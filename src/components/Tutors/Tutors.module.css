@@ -35,6 +35,12 @@
   transform: scale(1.03);
 }
 
+.title-icon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .info {
   display: flex;
   flex-direction: column;
