@@ -39,7 +39,6 @@ class Tutors extends Component {
     });
   };
   handleTutor = (data) => {
-    console.log('data:', data);
     const newId = this.state.list.length > 0 ? this.state.list.length : 0;
     const addNewTutor = {
       id: newId,
@@ -69,7 +68,7 @@ class Tutors extends Component {
         <div className={styles.tutorsList}>{this.renderList(list)}</div>
         {isAddFormVisible && <AddTutor onFormSubmit={this.handleTutor} />}
         <button onClick={() => this.setState({ isAddFormVisible: true })}>
-          Add tutor
+          ADD TUTOR
         </button>
       </section>
     );
